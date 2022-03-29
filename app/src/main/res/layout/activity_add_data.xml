@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".addData"
+    android:padding="20dp"
+    android:orientation="vertical"
+    android:background="@drawable/backround">
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/usernameG"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:layout_margin="20dp"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/time"
+        android:layout_gravity="center"
+        android:layout_below="@id/usernameG"
+        android:text="Lägg till tid"
+        android:background="#30ffffff"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        android:textAlignment="center"
+        android:onClick="openDatePicker"/>
+
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DataT"
+        android:hint="Träning"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:background="#30ffffff"
+        android:layout_below="@+id/time"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:drawableLeft="@drawable/ic_baseline_directions_run_24"
+        android:drawablePadding="20dp"/>
+
+
+
+    <Button
+        android:id="@+id/add_Data"
+        android:layout_below="@id/DataT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Send!"
+        android:layout_margin="20dp"
+        android:background="#30ffffff"/>
+
+    <ImageView
+        android:layout_centerHorizontal="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/why"
+        android:layout_marginBottom="20dp"/>
+
+</RelativeLayout>
