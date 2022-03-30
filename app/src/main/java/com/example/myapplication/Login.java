@@ -1,8 +1,11 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,6 +24,12 @@ public class Login extends AppCompatActivity {
 
     EditText usernameGet, passwordGet;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
+
+    private String text;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,21 +39,27 @@ public class Login extends AppCompatActivity {
         passwordGet = findViewById(R.id.password);
 
         Button loginBtn = (Button) findViewById(R.id.loginBtn);
-        Button createBtn = (Button) findViewById(R.id.signUp);
+        //Button createBtn = (Button) findViewById(R.id.signUp);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                closeKeyboard();
                 isUser();
+                saveLogin();
             }
         });
 
-        createBtn.setOnClickListener(new View.OnClickListener() {
+        /*createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createAccount();
             }
-        });
+        });*/
+
+        loadLogin();
+        updateViews();
 
     }
 
@@ -96,6 +111,32 @@ public class Login extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void closeKeyboard(){
+        View view = this.getCurrentFocus();
+        if (view!=null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    private void saveLogin(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putString(TEXT, usernameGet.getText().toString());
+        editor.apply();
+
+    }
+
+    public void loadLogin(){
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        text = sharedPreferences.getString(TEXT, "");
+    }
+
+    public void updateViews(){
+        usernameGet.setText(text);
     }
 
 }
