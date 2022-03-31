@@ -9,6 +9,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class DatabaseHelper {
@@ -39,6 +41,13 @@ public class DatabaseHelper {
                     keys.add(keyNode.getKey());
                     UserHelperClass2 userHelperClass2 = keyNode.getValue(UserHelperClass2.class);
                     data.add(userHelperClass2);
+                    Collections.sort(data, new Comparator<UserHelperClass2>() {
+                        @Override
+                        public int compare(UserHelperClass2 o1, UserHelperClass2 o2) {
+
+                            return Integer.valueOf(o2.totalTr).compareTo(o1.totalTr);
+                        }
+                    });
                 }
                 dataStatus.DataIsLoaded(data, keys);
 

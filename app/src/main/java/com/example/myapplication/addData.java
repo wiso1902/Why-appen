@@ -28,7 +28,7 @@ public class addData extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private Button timePicker;
     String money = "20";
-    String totalTr = "1";
+    int totalTr = 1;
     String total;
 
 
@@ -143,11 +143,10 @@ public class addData extends AppCompatActivity {
                         number2 = number;
                         number = number *20;
 
-                        String totalTr1 = String.valueOf(number2);
                         String newNuber1 = String.valueOf(number);
 
                         money = newNuber1;
-                        totalTr = totalTr1;
+                        totalTr = number2;
 
                     }
                 }

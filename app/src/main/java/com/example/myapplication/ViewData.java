@@ -72,6 +72,7 @@ public class ViewData extends AppCompatActivity {
                 intent.putExtra("regName", username);
 
                 startActivity(intent);
+                
             }
         });
 
@@ -79,6 +80,7 @@ public class ViewData extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openStats();
+
             }
         });
 

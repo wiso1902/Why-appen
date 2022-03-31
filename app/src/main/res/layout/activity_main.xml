@@ -31,7 +31,7 @@
         android:layout_marginBottom="200dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-        android:text="Goda härtan"
+        android:text="Goda hjärtan"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="	#FFD700"
